@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <title>Weather-APP</title>
+  </head>
+  <body>
+
+    <div class="container">
+        <div class="col-md-4 offset-md-4 text-center my-4">
+            <form action="/" method="post">
+              <input type="text" class="form-control mb-1" name="city" placeholder="Enter a City" required>
+              <input type="submit" class="btn btn-secondary btn-block" value="Get Weather">
+            </form>
+        </div>
+
+        
+
+        <% if(error !== null){ %>
+          <div class="col-md-4 offset-md-4 text-center my-4">
+            <div class="alert alert-danger">
+                <%= error %>
+            </div>
+          </div>
+        <% } %>
+
+        <% if(weather !== null){ %>
+          <div class="col-md-4 offset-md-4 text-center my-4">
+            <div class="box <%= weather.weatherClass %>">
+                
+                <h3><%= weather.name %></h3>
+                <h1><%= weather.temp %><span>&#xb0;C</span></h1>
+                <p><%= weather.main %></p>
+                <p><%= weather.description %></p>
+            </div>
+          </div>
+        <% } %>
+
+        
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
